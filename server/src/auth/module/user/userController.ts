@@ -4,6 +4,7 @@ import type { Request, Response } from "express";
 import * as argon2 from "argon2";
 
 export type IUser = {
+    id?: number;
     email: string;
     firstname: string;
     lastname: string;
@@ -14,7 +15,7 @@ export class userController {
     static async getAllUser(req: Request, res: Response) {
         try {
             const users = await UserModel.getAll() as IUser[];
-            console.log(users);
+            // console.log(users);
 
             return res.status(200).json(users);
 
