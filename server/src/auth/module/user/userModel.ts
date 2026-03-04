@@ -15,10 +15,10 @@ export default class UserModel {
 
     static getUserByEmail(email: string) {
         try {
-            const users = db.query('SELECT * FROM user WHERE email = (?)',
+            const user = db.query('SELECT * FROM user WHERE email = ?',
                 [email]
             );
-            return users;
+            return user;
         } catch (error) {
             return error;
         }
