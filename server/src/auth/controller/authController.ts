@@ -41,7 +41,7 @@ export default class AuthController {
       })
 
     } catch (err) {
-      console.log('err :>> ', err);
+      // console.log('err :>> ', err);
       res.status(500).json({ message: 'erreur' });
     }
   }

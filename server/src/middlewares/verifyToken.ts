@@ -14,7 +14,6 @@ export const verifyToken = async (req: AuthRequest, res: Response, next: NextFun
 
     try {
         const token = req.cookies.access_token;
-        console.log(token);
         if (!token) {
             return res.status(401).json({ message: "Action non autorisée" })
         }
@@ -29,7 +28,7 @@ export const verifyToken = async (req: AuthRequest, res: Response, next: NextFun
         req.user = userIfExist;
         next();
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(500).json({ message: "Erreur du serveurs" });
     }
 
