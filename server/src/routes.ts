@@ -1,6 +1,7 @@
 import express from "express";
 import { userController } from "./auth/module/user/userController.ts";
 import authController from "./auth/controller/authController.ts";
+import { verifyToken } from "./middlewares/verifytoken.ts";
 
 export const route = express.Router();
 
@@ -9,3 +10,5 @@ route.get('/users', userController.getAllUser);
 route.post('/users', userController.create);
 
 route.post('/login', authController.login);
+
+route.get('/me', verifyToken, userController.getOneUser)
